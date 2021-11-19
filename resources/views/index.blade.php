@@ -8,8 +8,8 @@
 <div id="search-container" class="col-md-12">
     <h1>Busque um Chamado</h1>
 
-    <form action="">
-        <input type="text" id="search" name="search" class="form-control" placeholder="Procurar.....">
+    <form action="/" method="GET">
+    <input type="text"  class="busca" name="search"  class="form-control"  >
 
 
     </form>
@@ -19,8 +19,16 @@
 
 
 <div id="events-container" class="col-md-12">
-<h1> Lista de chamados</h1>
-    <p class="subtitle"> Vejas os chamados que estão em aberto</p>
+@if($search)
+    <h2>Buscando por: {{$search}}</h2>
+    <p class="subtitle">Vejas os chamados relacionados a sua busca</p>
+    @else
+    <h2>Seus Chamados </h2>
+    <p class="subtitle">Vejas aqui todos os chamados já criados </p>
+    @endif
+
+
+
     <div id="cards-containers" class="row">
         @foreach ($chamados as $dadosChamado)
         <div class="card col-md-2">
@@ -36,6 +44,16 @@
         </div>
 
         @endforeach
+
+        @if(count($chamados) === 0 && $search)
+        <div class="alert alert-danger" role="alert">
+           Não existe nenhum chamado sobre "{{$search}}". <a href="/" class="alert-link"> Retorne a tela inicial</a> para buscar outro chamado! 
+        </div>
+        @elseif(count($chamados) === 0)
+        <div class="alert alert-secondary" role="alert">
+            Não há chamados em aberto!
+        </div>
+        @endif
     </div>
 
   

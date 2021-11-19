@@ -14,6 +14,19 @@ ion-icon {
 
 }
 
+#search-container .busca {
+
+    width:450px;    
+    align-items: center;
+    border: none;
+    border-radius: 0.8rem;
+    text-align: none;
+    overflow-wrap: break-word;
+    padding:5px;
+    
+    
+}
+
 .p 
 {
     vertical-align: middle !important;
@@ -256,6 +269,15 @@ border-top-right-radius: 10px;
 {
     vertical-align: middle !important;
     margin-top: 10px;
+
+
+}
+
+#events-detalhes .list-group-item .chamado-status
+{
+    vertical-align: middle !important;
+    margin-top: 10px;
+    color: red;
 
 
 }

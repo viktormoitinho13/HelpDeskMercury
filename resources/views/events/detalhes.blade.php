@@ -43,6 +43,15 @@
                         </p>
                     </li>
 
+                    <li class="list-group-item">
+                        <p class="chamado-status" title="Status">
+                        <ion-icon name="speedometer-outline"></ion-icon>
+                          STATUS
+                        </p>
+                    </li>
+
+
+
 
                 </ul>
             </div>

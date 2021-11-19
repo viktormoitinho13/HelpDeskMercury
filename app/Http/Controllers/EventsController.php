@@ -11,9 +11,19 @@ class EventsController extends Controller
 {
     public function index()
     {
-        $chamado = Chamado::all(); // Chama todos os eventos do banco
+        $search = Request('search');
+
+        if($search)
+        {
+            $chamado = Chamado::where([
+                ['assunto', 'like', '%'.$search.'%']
+            ])->get();
+        } else
+        {
+            $chamado = Chamado::all(); // Chama todos os eventos do banco
+        }
     
-        return view('index',['chamados' => $chamado]); // retorna para a view / um array com todos os eventos que retornaram do banco
+        return view('index',['chamados' => $chamado, 'search' =>$search]); // retorna para a view / um array com todos os eventos que retornaram do banco
 
 
 
