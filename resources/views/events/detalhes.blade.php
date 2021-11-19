@@ -28,7 +28,7 @@
                     </li>
                     <li class="list-group-item">
                         <p class="chamado-usuario" title="Nome do usuário" >
-                            <ion-icon  item-start name="person-outline"></ion-icon> {{$chamados->usuario}}
+                            <ion-icon  item-start name="person-outline"></ion-icon> {{$chamadoOwner['name']}}
                         </p>
                     </li>
                     <li class="list-group-item">
@@ -81,11 +81,11 @@
             <div class="card" style="width: 28rem;">
                 <div class="card-header" title="Anexo do problema">
                     <h3>
-                        <ion-icon name="image-outline"></ion-icon> Print
+                        <ion-icon name="image-outline"></ion-icon> Anexos
                     </h3>
                 </div>
                 <div class="card-body">
-                <a href="/img/chamados/{{$chamados->image}}" target="_blank"> <img src="/img/chamados/{{$chamados->image}}" class="img-fluid" alt="{{$chamados->image}}"> </a>
+                <a href="/img/chamados/{{$chamados->image}}" target="_blank"> Visualizar </a>
                 </div>
 
 

@@ -31,16 +31,33 @@
                     <img src="/img/Mercury_Logo.png" alt="logoMercury">
                 </a>
                 <ul class="navbar-nav">
+
+                @auth
                     <li class="navbar-item">
-                        <a href="/" class="nav-link">Listar Chamados</a>
+                        <a href="/dashboard" class="nav-link">Listar Chamados</a>
                     </li>
                     <li class="navbar-item">
                         <a href="/NovoChamado" class="nav-link">Criar chamados</a>
                     </li>
 
                     <li class="navbar-item">
-                        <a href="/Configuracoes" class="nav-link">Configurações</a>
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <a href="/logout" class="nav-link" 
+                            onclick="event.preventDefault();
+                            this.closest('form').submit();">
+                            Sair</a>
+                    </form>
                     </li>
+                    @endauth
+                    
+
+                    @guest
+                    <li class="navbar-item">
+                        <a href="/login" class="nav-link">Login</a>
+                    </li>
+
+                    @endguest
                 </ul>
 
 

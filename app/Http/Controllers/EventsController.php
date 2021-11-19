@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Chamado; // Model precisa ter o mesmo nome da tabela no banco para realizar o select
 use Egulias\EmailValidator\Exception\CharNotAllowed;
+use App\Models\User;
 
 class EventsController extends Controller
 {
@@ -48,7 +49,6 @@ class EventsController extends Controller
         $chamado->categoria = $request->categoria;
         $chamado->descricao = $request->descricao;
         $chamado->loja = $request->loja;
-        $chamado->usuario = $request->usuario;
         $chamado->prioridade = $request->prioridade;
 
         // image upload 
@@ -63,6 +63,9 @@ class EventsController extends Controller
             $chamado->image = $imageName;
         }
 
+        $user = auth()->user(); // Autenticação do usuario
+        $chamado->user_id = $user->id;
+
 
         $chamado->save();
 
@@ -72,6 +75,10 @@ class EventsController extends Controller
     public function detalhes($id)
     {
         $chamado = Chamado::findOrFail($id);
-        return view('events.detalhes',['chamados' => $chamado]);
+
+        $chamadoOwner = User::where('id', $chamado->user_id)->first()->toArray();
+
+        return view('events.detalhes',['chamados' => $chamado, 'chamadoOwner' =>  $chamadoOwner]);
+        return view('index',['chamadoOwner' =>  $chamadoOwner]);
     }
 }

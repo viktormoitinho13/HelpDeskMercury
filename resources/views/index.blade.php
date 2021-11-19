@@ -30,13 +30,14 @@
 
 
     <div id="cards-containers" class="row">
-        @foreach ($chamados as $dadosChamado)
+        @foreach ($chamados as $dadosChamado )
+        
         <div class="card col-md-2">
                 <div class="card-body">
-                <p class="card-date">Data de abertura: {{\Carbon\Carbon::parse($dadosChamado->create_at)->format('d/m/Y')}}</p>
-                <h5 class="card-title">Assunto: {{$dadosChamado->assunto}}</h5>
-                <p class="card-participants" title="Usuário">Usuário: {{$dadosChamado->usuario}}</p>
+                <p class="card-title">Nº do chamado: #{{$dadosChamado->id}}</p>
+                <p class="card-participants">Assunto: {{$dadosChamado->assunto}}</p>
                 <p class="card-participants" title="Número da Loja">Nº da Loja: #{{$dadosChamado->loja}}</p>
+                <p class="card-participants" title="Data de abertura">Data de abertura: {{\Carbon\Carbon::parse($dadosChamado->create_at)->format('d/m/Y')}}</p>
                 
                 <a href="/events/{{$dadosChamado->id}}" class="btn btn-primary" >Saber mais</a>
 

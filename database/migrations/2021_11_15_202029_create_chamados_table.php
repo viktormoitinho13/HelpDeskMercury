@@ -19,7 +19,6 @@ class CreateChamadosTable extends Migration
             $table->string('categoria',100); // Cria um varchar de 100 caracteres na tabela
             $table->text('descricao'); // Cria uma coluna do tipo text
             $table->integer('loja'); // cria um inteiro 
-            $table->string('usuario'); // cria um varchar de 254 caracteres (sem limitação)
             $table->timestamps();
         });
     }

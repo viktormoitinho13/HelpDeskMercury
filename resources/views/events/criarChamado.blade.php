@@ -34,14 +34,14 @@
             </select>
 
         </div>
-        <!--Usuario do chamado -->
+        <!--Usuario do chamado 
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text" ><ion-icon name="person-outline" size="large"> </span>
             </div>
             <input type="text" class="form-control" id="usuario" name="usuario" placeholder="O seu nome " required>
         </div>
-
+-->
 
 
         <!--Loja  do Chamado -->
