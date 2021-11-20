@@ -15,9 +15,7 @@
     </form>
 
 </div>
-
-
-
+    
 <div id="events-container" class="col-md-12">
 @if($search)
     <h2>Buscando por: {{$search}}</h2>
@@ -26,7 +24,6 @@
     <h2>Seus Chamados </h2>
     <p class="subtitle">Vejas aqui todos os chamados já criados </p>
     @endif
-
 
 
     <div id="cards-containers" class="row">
@@ -46,7 +43,9 @@
 
         @endforeach
 
-        @if(count($chamados) === 0 && $search)
+       
+    </div>
+    @if(count($chamados) === 0 && $search)
         <div class="alert alert-danger" role="alert">
            Não existe nenhum chamado sobre "{{$search}}". <a href="/" class="alert-link"> Retorne a tela inicial</a> para buscar outro chamado! 
         </div>
@@ -55,8 +54,6 @@
             Não há chamados em aberto!
         </div>
         @endif
-    </div>
-
   
 </div>
 

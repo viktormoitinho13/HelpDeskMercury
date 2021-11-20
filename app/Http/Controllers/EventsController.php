@@ -10,25 +10,7 @@ use App\Models\User;
 
 class EventsController extends Controller
 {
-    public function index()
-    {
-        $search = Request('search');
-
-        if($search)
-        {
-            $chamado = Chamado::where([
-                ['assunto', 'like', '%'.$search.'%']
-            ])->get();
-        } else
-        {
-            $chamado = Chamado::all(); // Chama todos os eventos do banco
-        }
     
-        return view('index',['chamados' => $chamado, 'search' =>$search]); // retorna para a view / um array com todos os eventos que retornaram do banco
-
-
-
-    }
 
     public function novoChamado()
     {
@@ -36,10 +18,6 @@ class EventsController extends Controller
     }
 
  
-    public function configuracoes()
-    {
-        return view('events/configuracoes');
-    }
 
     public function store (Request $request)
     {
@@ -79,6 +57,40 @@ class EventsController extends Controller
         $chamadoOwner = User::where('id', $chamado->user_id)->first()->toArray();
 
         return view('events.detalhes',['chamados' => $chamado, 'chamadoOwner' =>  $chamadoOwner]);
-        return view('index',['chamadoOwner' =>  $chamadoOwner]);
+    }
+
+    public function dashboard(){
+        $user = auth()->user();
+
+        $chamado = $user->chamados;
+
+        return view('events.dashboard', ['chamados' => $chamado]);
+
+         }
+
+    public function index()
+    {
+        
+        $user = auth()->user();
+        $search = Request('search');
+
+        $chamado = $user->chamados;
+      
+      
+
+        if($search)
+        {
+            $chamado = Chamado::where([
+                ['assunto', 'like', '%'.$search.'%']
+            ])->get();
+        } 
+        
+      
+    
+        return view('index',['chamados' => $chamado, 'chamados' => $chamado, 'search' =>$search]); // retorna para a view / um array com todos os eventos que retornaram do banco
+        
+
+       
+
     }
 }

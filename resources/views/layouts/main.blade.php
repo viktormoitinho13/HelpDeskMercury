@@ -33,6 +33,8 @@
                 <ul class="navbar-nav">
 
                 @auth
+               
+
                     <li class="navbar-item">
                         <a href="/dashboard" class="nav-link">Listar Chamados</a>
                     </li>

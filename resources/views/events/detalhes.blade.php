@@ -17,8 +17,8 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <p class="chamado-departamento" title="Departamento">
-                            <ion-icon item-start name="people-outline"></ion-icon> X Departamento
+                        <p class="chamado-departamento" title="Assunto">
+                            <ion-icon item-start name="newspaper-outline"></ion-icon> {{$chamados->assunto}}
                         </p>
                     </li>
                     <li class="list-group-item">

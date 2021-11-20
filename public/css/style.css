@@ -293,6 +293,25 @@ border-top-right-radius: 10px;
     background-color: white;
 }
 
+/*Dashboard*/
+
+
+
+.dashboard-events-container th 
+{
+   width: 20%;
+      
+}
+
+.dashboard-events-container td 
+{
+    width: 10%;
+}
+
+.dashboard-events-container td ion-icon
+{
+    font-size: 30px;
+}
 
 
 

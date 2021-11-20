@@ -18,13 +18,16 @@ use PhpParser\Node\Expr\FuncCall;
 
 // GETS
 Route::get('/', [EventsController::class , 'index'])->middleware('auth'); // Rota que recebe as informações dos EventsController (a função fica dentro da pasta /app/http/controllers)
+
+// temporario
+Route::get('/dashboard', [EventsController::class , 'dashboard'])->middleware('auth');
+
+
 Route::get('/NovoChamado', [EventsController::class, 'novoChamado'])->middleware('auth');
 Route::get('/events/{id}', [EventsController::class, 'detalhes'])->middleware('auth');
+Route::get('/dashboard', [EventsController::class, 'dashboard'])->middleware('auth');
 
 
 // POSTS
 Route::post('/chamado', [EventsController::class, 'store'])->middleware('auth');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
